@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TS16</title>
+  </head>
+  <body>
+    <div id="hallo"></div>
+    <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      var socket = io.connect();
+      socket.on('line',function(data){
+        console.log(JSON.parse(data).ax)
+      })
+    </script>
+  </body>
+</html>
