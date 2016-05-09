@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <style>
+
+  svg {
+    font: 10px sans-serif;
+  }
+
+  .line {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1.5px;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+  .pghead {
+    height: 80px;
+    }
+  .pghead {
+    background: #003744;
+    padding-left: 40px;
+}
+  .haeinn{
+      padding-left: 50px;
+      color: #ef664f;
+      font-family: "DIN Next W01 Light","Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-weight: 400;
+      font-size: 2.8em;
+      margin: 0 0 15px 0;
+      line-height: 1.107142857142857em;
+  }
+  .tala{
+      padding-top: 100px;
+      color: #ef664f;
+      font-family: "DIN Next W01 Light","Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-weight: 400;
+      font-size: 12.8em;
+      margin: 0 0 15px 0;
+      line-height: 1.107142857142857em;
+
+  }
+  </style>
+</head>
+<body>
+  <header class="pghead" id="pghead">
+    <div class="wrap">
+
+
+      <!-- eplica-no-index -->
+      <div class="brand" role="banner"><a href="/" title="Team Spark - forsíða"><img class="logo" src="sitelogo.png" alt="Team Spark"></a></div>
+
+      <!-- /eplica-no-index -->
+
+
+
+
+    </div>
+</header>
+<div class="container-fluid">
+  <h1 class="haeinn">Hröðun</h1>
+  <div class="graphs row"></div>
+  <h1 class="haeinn" id="hradi">Hraði</h1>
+  <div class="speed col-lg-4" >
+    <span></span>
+  </div>
+  <div class="tala col-lg-4 text-center">
+    <span></span>
+  </div>
+</div>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/plotthis.js"></script>
+<script src="js/accel.js"></script>
+</body>
+</html>

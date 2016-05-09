@@ -3,16 +3,78 @@
   <head>
     <meta charset="utf-8">
     <title>TS16</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/dashboard.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/plots.css" media="screen" charset="utf-8">
   </head>
   <body>
-    <div id="hallo"></div>
-    <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">TS16</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Yfirlit <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Hraði</a></li>
+            <li><a href="#">Hröðun</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Yfirlit</h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-4 placeholder" id="ax">
+              <div class="chart"></div>
+              <h4>Hröðun - x</h4>
+              <span class="text-muted"></span>
+            </div>
+            <div class="col-xs-6 col-sm-4 placeholder" id="ay">
+              <div class="chart"></div>
+              <h4>Hröðun - y</h4>
+              <span class="text-muted"></span>
+            </div>
+            <div class="col-xs-6 col-sm-4 placeholder" id="az">
+              <div class="chart"></div>
+              <h4>Hröðun - z</h4>
+              <span class="text-muted value"></span>
+            </div>
+          </div>
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-6 placeholder" id="sp">
+              <div class="chart"></div>
+              <h4>Hraði</h4>
+            </div>
+            <div class="col-xs-6 col-sm-6 placeholder">
+              <div class="speed"></div>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      var socket = io.connect();
-      socket.on('line',function(data){
-        console.log(JSON.parse(data).ax)
-      })
-    </script>
+    <script src="js/plotthis.js"></script>
+    <script src="js/accel.js"></script>
   </body>
 </html>

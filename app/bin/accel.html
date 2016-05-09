@@ -39,7 +39,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script>
-    var socket = io.connect();
     var limit = 60 * 1,
         duration = 750,
         now = new Date(Date.now() - duration)
@@ -112,13 +111,16 @@
     now = new Date()
 
         // Add new values
-        socket.on('line',function(data){
-          data = JSON.parse(data)
-          for (var name in data){
-            groups[name].data.push(data[name]*10)
-            groups[name].path.attr('d', line)
+        var ws = new WebSocket('ws://localhost:5000');
+        ws.onopen = function(e){
+          ws.onmessage = function(e){
+            data = JSON.parse(e.data)
+            for (var name in data){
+              groups[name].data.push(data[name]*10)
+              groups[name].path.attr('d', line)
+            }
           }
-        })
+        }
 
 
         // Shift domain
